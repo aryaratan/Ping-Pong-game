@@ -17,7 +17,7 @@ var vy ;
 
 // initial paddle left 
 var l = 550;
-
+var v ;
 // for handling multiple collision
 let collision = true;
 
@@ -35,7 +35,7 @@ function newGame(){
     localStorage.setItem('player', JSON.stringify(obj));
 
     // variable for speed
-    var v = parseInt(prompt("Enter level "));
+    v= parseInt(prompt("Enter level "));
     vx = v;
     vy = v;
     alert("This is your first game ");
