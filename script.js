@@ -12,12 +12,22 @@ var score1 = 0;
 let PerName;
 
 // speed variables
-var vx ;
-var vy ;
+var vx = 2;
+var vy = 2;
 
 // initial paddle left 
-var l = 550;
+var l = window.innerWidth / 2  - 75 ;
 var v ;
+
+
+ball.style.marginLeft =  l + 65 +  "px";
+ball.style.marginTop = innerHeight/2 - 10 + "px";
+upperbar.style.left =  l + "px";
+upperbar.style.top =   "30px";
+lowerBar.style.left =  l + "px";
+lowerBar.style.left =  innerHeight - 30 + "px";
+
+
 // for handling multiple collision
 let collision = true;
 
@@ -35,7 +45,7 @@ function newGame(){
     localStorage.setItem('player', JSON.stringify(obj));
 
     // variable for speed
-    v= parseInt(prompt("Enter level "));
+    v =  parseInt(prompt("Enter level "));
     vx = v;
     vy = v;
     alert("This is your first game ");
@@ -59,14 +69,14 @@ function reset() {
     clearInterval(interval);
     // initialise all value form start
     score1 = 0;
-    vx = v;
-    vy = v;
-    l = 550;
-    ball.style.marginLeft = "620px";
-    ball.style.marginTop = "250px";
-    upperbar.style.left = "550px";
-    lowerBar.style.left = "550px";
-    collision = true;
+    // vx = v;
+    // vy = v;
+    l = innerWidth /2 - 75 ;
+    ball.style.marginLeft =  l + 65 +  "px";
+    ball.style.marginTop = innerHeight/2 - 10 + "px";
+    upperbar.style.left =  l + "px";
+    lowerBar.style.left =  l + "px";
+    // collision = true;
 
     // reccursive call to start
     start();
@@ -153,13 +163,13 @@ function move() {
 // make paddle move by left and right arrow keys
 document.addEventListener('keydown', function (event) {
     // key value and max left value
-    if (event.keyCode == 39 && l <= 1090) {
+    if (event.keyCode == 39 && l <= innerWidth - 165) {
         upperbar.style.left = l + 15 + 'px';
         lowerBar.style.left = l + 15 + 'px';
         l += 15;
     }
     // key value and min left value
-    else if (event.keyCode == 37 && l >= 10) {
+    else if (event.keyCode == 37 && l >= 15) {
         upperbar.style.left = l - 15 + 'px';
         lowerBar.style.left = l - 15 + 'px';
         l -= 15;
